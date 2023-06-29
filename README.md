@@ -23,7 +23,7 @@ This class is responsible for the setup of our voting system. It initializes our
 This class triggers the casting of votes when the application starts, mimicking real-world usage and demonstrating the functionality of our system.
 <br>
 • Voting Service:
-This service provides the core voting functionalities such as casting votes and getting the voting results. It interacts with other services such as VotingSystem, PeerService, and PeerNetworkingService. It is annotated with @Service and @Component, meaning it is a Spring-managed bean and is automatically instantiated at runtime. The castVote function is used to vote for a candidate using the provided voter ID, candidate name, and keys. The getVotingResults function returns the current voting results. The synchronizeBlockchain function, scheduled to run every 15 seconds, is responsible for synchronizing the current node's blockchain with its peers.
+This service provides the core voting functionalities such as casting votes and getting voting results. It interacts with other services such as VotingSystem, PeerService, and PeerNetworkingService. It is annotated with @Service and @Component, meaning it is a Spring-managed bean and is automatically instantiated at runtime. The castVote function is used to vote for a candidate using the provided voter ID, candidate name, and keys. The getVotingResults function returns the current voting results. The synchronizeBlockchain function, scheduled to run every 15 seconds, is responsible for synchronizing the current node's blockchain with its peers.
 <br>
 • Peer Service:
 This class manages the local copy of the blockchain. It has functions to get and set the current blockchain.
@@ -48,5 +48,10 @@ This class represents a vote transaction. Each transaction contains a voter ID, 
 <br>
 • Voting System
 This class manages the voting system. It maintains a list of candidates and a map of votes for each candidate. The castVote function is used to vote for a candidate. It creates a new transaction and a new block, then adds the block to the blockchain. The calculateResults function calculates the current voting results by counting the votes for each candidate.
+<br>
 Each class is designed with specific responsibilities, ensuring the separation of concerns in the system. The system's architecture is modular and follows the single responsibility principle, making it easy to maintain and extend.
+<br>
 The private nature of our blockchain network provides an optimal balance of transparency and security, as only trusted nodes can participate in the network. We also optimized for performance and scalability by using thread pools for simultaneous voting and blockchain operations.
+<br>
+# PERFORMANCE
+Our prototype demonstrates robust, efficient, and scalable performance. It can handle multiple simultaneous votes, updating the blockchain in real-time while maintaining the overall system's integrity and security. Furthermore, the blockchain synchronization mechanism ensures that all peers have the most recent and accurate version of the blockchain, crucial for the reliability and credibility of voting results.
